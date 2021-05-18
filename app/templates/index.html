@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+    {% extends "base.html" %}
+
+    {% block content %}
+      {% if current_user.username %}
+        <p>Olá, {{current_user.username}}</p>
+      {% endif %}
+
+    <h1>Como surgiu o T-Schedule?</h1>  
+    <p>O projeto T-Schedule surgiu durante o período letivo de 2020.1, para a disciplina de Introdução 
+    à Engenharia de Controle e Automação, com a ideia de auxiliar os alunos a montarem seus cronogramas de estudo. 
+    Durante o projeto, 81 discentes, sendo eles da Escola Politécnica da UFRJ, da Escola Fluminense de Engenharia 
+    da UFF, entre outras universidades, demarcaram quantas horas passavam semanalmente estudando cada disciplina 
+    do primeiro período. Esta página visa mostrar aos seus usuários os resultados obtidos durante a pesquisa.</p> 
+    {% endblock %}
+    
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+  {% extends "base.html" %}
+  {% block content %}
+  <style>
+    body {
+            background-image: url("{{ url_for('static', filename='img/materias.jpg') }}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;  
+            background-size: cover;
+            }
+    </style>
+<h1 style="color:whitesmoke;">Guia de Estudos</h1>
+
+<form action="/materias" method = "POST">
+  <label for="Disciplina" style="color:whitesmoke;">Escolha uma disciplina:</label>
+  <select name="Disciplina" id="Disciplina">
+    <optgroup label="Primeiro Período">
+      <option value="Calculo 1">Cálculo 1</option>
+      <option value="Fisica 1">Física 1</option>
+      <option value="Fisica exp">Física Exp</option>
+      <option value="Programaçao">Programação</option>
+      <option value="Quimica">Química</option>
+    </optgroup>
+  </select>
+  <br><br>
+  <input type="submit" value="Submeter">
+</form>
+
+{% if materia %}
+  {% if materia == "Calculo 1" %}
+  <img id="Calculo 1" src="static\img\Calculo 1.jpg" width="700" height="500">
+  <h1 style="color:whitesmoke;">Com base em nossa pesquisa, esses foram os resultados para Cálculo 1! 😀</h1>
+  <a href="https://arquimedes.nce.ufrj.br/calculo1" target="_blank">Site da Disciplina</a>
+  {% elif materia == "Fisica 1" %}
+  <img id="Fisica 1" src="static\img\Fisica 1.jpg" width="700" height="500">
+  <h1 style="color:whitesmoke;">Com base em nossa pesquisa, esses foram os resultados para Física 1! 😀</h1> 
+  <a href="https://fisica1ifufrj.wordpress.com" target="_blank">Site da Disciplina</a>
+  {% elif materia == "Quimica" %}
+  <img id="Quimica" src="static\img\Quimica.jpg" width="700" height="500">
+  <h1 style="color:whitesmoke;">Com base em nossa pesquisa, esses foram os resultados para Química! 😀</h1>
+  <a href="https://dqi.iq.ufrj.br/iqg111.html" target="_blank">Site da Disciplina</a>
+  {% elif materia == "Programaçao" %}
+  <img id="Programaçao" src="static\img\Programaçao.jpg" width="700" height="500">
+  <h1 style="color:whitesmoke;">Com base em nossa pesquisa, esses foram os resultados para disciplinas de Programação! 😀</h1>
+  <a href="https://dcc.ufrj.br/~pythonufrj/index.html" target="_blank">Site da Disciplina</a>
+  {% elif materia == "Fisica exp" %}
+  <img id="Fisica exp" src="static\img\Fisica exp.jpg" width="700" height="500">
+  <h1 style="color:whitesmoke;">Com base em nossa pesquisa, esses foram os resultados para Física Experimental! 😀</h1>
+  <a href="https://fisexp1.if.ufrj.br/" target="_blank">Site da Disciplina</a>
+  {% endif %}
+{% endif %}
+{% endblock %}
+</body>
+</html>

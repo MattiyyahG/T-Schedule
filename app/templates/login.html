@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>Faça seu Login</h3>
+    <form action="/login" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+        <style>
+            h3 {
+            color: rgb(255, 255, 255);
+            font-family: courier;
+            font-size: 180%;
+}
+            p  {
+            color: rgb(255, 255, 255);
+            font-family: courier;
+            font-size: 100%;
+}
+            body {
+                    background-image: url("{{ url_for('static', filename='img/Login.jpg') }}");
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;  
+                    background-size: cover;
+                    }
+            </style>
+    </form>
+{% endblock %}
+

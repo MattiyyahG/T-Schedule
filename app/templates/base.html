@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <style> .alert-error {
+            color: white;
+          } 
+            h1 {
+              color: rgb(255, 255, 255);
+              font-family: courier;
+              font-size: 180%;
+            }
+            p  {
+              color: rgb(255, 255, 255);
+              font-family: courier;
+              font-size: 100%;
+            }
+            body {
+                    background-image: url("{{ url_for('static', filename='img/Home.jpg') }}");
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;  
+                    background-size: cover;
+            }
+
+        </style>
+        {% if title %}
+        <title>{{ title }} - T-Schedule</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            T-Schedule:
+            <a href="{{url_for('index')}}">Home</a>
+            <a href="{{url_for('login')}}">Login</a>
+            <a href="{{url_for('cadastro')}}">Cadastro</a>
+            {% if current_user.username %}
+            <a href="{{url_for('logout')}}">Logout</a>
+            <a href="{{url_for('materias')}}">Matérias</a>
+            {% endif %}
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <div class = "alert-error">{{ message }}</div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
